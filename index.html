@@ -177,53 +177,24 @@
             margin-bottom: 24px;
         }
 
-        .proposal-card {
-            background: linear-gradient(135deg, var(--deep-indigo), #0A3D7A);
-            border-radius: 16px;
-            padding: 40px;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            flex-wrap: wrap;
+        .proposal-embed {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E0E0E0;
+            background: var(--white);
         }
 
-        .proposal-card .card-text h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
+        .proposal-embed iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
         }
 
-        .proposal-card .card-text p {
-            font-size: 14px;
-            opacity: 0.8;
-            color: var(--white);
-        }
-
-        .proposal-card .card-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--azure-blue);
-            color: var(--white);
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-
-        .proposal-card .card-btn:hover {
-            background: #2590EB;
-        }
-
-        .proposal-card .card-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
+        @media (min-width: 900px) {
+            .proposal-embed iframe {
+                height: 720px;
+            }
         }
 
         .proposal-footer {
@@ -274,15 +245,8 @@
                 <h1>Your Proposal from Microsoft</h1>
                 <p>Thank you for the opportunity to partner with Culligan. We've prepared a tailored proposal for your review. Click below to open the full presentation.</p>
 
-                <div class="proposal-card">
-                    <div class="card-text">
-                        <h2>Microsoft Proposal for Culligan</h2>
-                        <p>Click to open the full proposal presentation</p>
-                    </div>
-                    <a href="https://microsoft-my.sharepoint.com/:p:/p/cjcartwright/cQrhhYkc3B_gQ5PB97pZ7cBBEgUCSGuFzenqMEIRGbbhzj9fvQ" target="_blank" rel="noopener" class="card-btn">
-                        <span>View Proposal</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M12.2 8.87H0V6.87h12.2L6.58 1.16 8 .76l7.3 7.41.7.7-.7.7L8 16.98l-1.42-1.4L12.2 8.87z"/></svg>
-                    </a>
+                <div class="proposal-embed">
+                    <iframe src="https://microsoft-my.sharepoint.com/:p:/p/cjcartwright/cQrhhYkc3B_gQ5PB97pZ7cBBEgUCSGuFzenqMEIRGbbhzj9fvQ?action=embedview" allowfullscreen></iframe>
                 </div>
             </div>
         </main>
