@@ -156,45 +156,121 @@
             padding: 48px 24px;
         }
 
-        .welcome-section {
+        .proposal-content {
             background: var(--white);
             border-radius: 16px;
-            padding: 48px;
             box-shadow: 0 2px 12px rgba(2, 38, 86, 0.06);
-            margin-bottom: 32px;
+            overflow: hidden;
         }
 
-        .welcome-section h1 {
-            font-size: 28px;
+        .proposal-hero {
+            background: linear-gradient(135deg, var(--deep-indigo) 0%, #0A3D7A 100%);
+            padding: 64px 48px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proposal-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,120,212,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .proposal-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(230,247,242,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .proposal-hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .proposal-hero .subtitle {
+            font-size: 18px;
+            opacity: 0.85;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .proposal-hero .logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .proposal-hero .logos img {
+            height: 28px;
+            filter: brightness(0) invert(1);
+        }
+
+        .proposal-hero .logos .divider {
+            width: 1px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .proposal-hero .logos .ms-logo {
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        .welcome-section p {
+        .proposal-text {
+            padding: 56px 48px;
+        }
+
+        .proposal-text p {
             font-size: 16px;
-            color: var(--grey-secondary);
-            line-height: 1.6;
+            line-height: 1.8;
+            color: #374151;
             margin-bottom: 24px;
         }
 
-        .proposal-embed {
+        .proposal-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .proposal-signature {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #E5E7EB;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--deep-indigo);
+        }
+
+        .values-section {
+            background: var(--marine-mint);
             border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #E0E0E0;
-            background: var(--white);
+            padding: 32px;
+            margin: 32px 0;
         }
 
-        .proposal-embed iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            display: block;
-        }
-
-        @media (min-width: 900px) {
-            .proposal-embed iframe {
-                height: 720px;
-            }
+        .values-section p {
+            color: var(--deep-indigo) !important;
+            margin-bottom: 0 !important;
         }
 
         .proposal-footer {
@@ -205,13 +281,14 @@
         }
 
         @media (max-width: 600px) {
-            .welcome-section {
-                padding: 28px;
+            .proposal-hero {
+                padding: 40px 24px;
             }
-            .proposal-card {
-                padding: 28px;
-                flex-direction: column;
-                align-items: flex-start;
+            .proposal-hero h1 {
+                font-size: 26px;
+            }
+            .proposal-text {
+                padding: 32px 24px;
             }
         }
     </style>
@@ -241,12 +318,33 @@
         </header>
 
         <main class="proposal-body">
-            <div class="welcome-section">
-                <h1>Your Proposal from Microsoft</h1>
-                <p>Thank you for the opportunity to partner with Culligan. We've prepared a tailored proposal for your review. Click below to open the full presentation.</p>
+            <div class="proposal-content">
+                <div class="proposal-hero">
+                    <h1>Microsoft Copilot Lightning Bolt Offer</h1>
+                    <p class="subtitle">A Proposal Prepared Exclusively for Culligan</p>
+                    <div class="logos">
+                        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan">
+                        <div class="divider"></div>
+                        <span class="ms-logo">Microsoft</span>
+                    </div>
+                </div>
 
-                <div class="proposal-embed">
-                    <iframe src="https://microsoft-my.sharepoint.com/:p:/p/cjcartwright/cQrhhYkc3B_gQ5PB97pZ7cBBEgUCSGuFzenqMEIRGbbhzj9fvQ?action=embedview" allowfullscreen></iframe>
+                <div class="proposal-text">
+                    <p>On behalf of Microsoft, we thank you for the privilege to provide and respond to Culligan's vital business transformation initiative. We are grateful for the unique opportunity you have given us to become students of your business and to allow us to humbly bring our point of view on how meaningful innovation will contribute to your success in big and small ways.</p>
+
+                    <div class="values-section">
+                        <p>Microsoft and Culligan share unique values. We respect and recognize that the thoughts, feelings, and backgrounds of others are as important as our own. We value our people and believe in partnership, and collaboration. We are honest, ethical and trustworthy through unquestionable integrity and transparency. We value accountability and quality, we accept full responsibility over our decisions, actions, and results. Lastly, we are innovators and pioneers, sharing an unrelentless quest for improvement. And because we share these values, our partnership is poised for mutual and long-lasting success.</p>
+                    </div>
+
+                    <p>In 2025, we mutually committed to invest in the uncharted territories of this partnership in a unique and rare way. Our engagement resulted in a collaboration model with Microsoft, and Culligan to co-create a vision for the future of your organization. Over the past few months, we've had the pleasure of meeting with your stakeholders, learn about your business priorities, and today, we are presenting you with an estimated software proposal.</p>
+
+                    <p>Our full suite of purpose-driven applications will empower you to collaborate across business units, have the insight to make critical decisions, perform exceptional customer service, leverage world class AI technology, take advantage of new trends, disrupt, adapt and reimagine what's possible — on a flexible platform that will allow for what the future brings.</p>
+
+                    <p>We are committed to your success and excited about the journey ahead.</p>
+
+                    <div class="proposal-signature">
+                        — Your Microsoft Team
+                    </div>
                 </div>
             </div>
         </main>
