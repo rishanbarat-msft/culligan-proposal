@@ -55,7 +55,7 @@
         /* Navigation */
         nav { position: fixed; top: 0; width: 100%; background: rgba(0,13,31,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,163,224,0.12); z-index: 1000; padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between; }
         .nav-logos { display: flex; align-items: center; gap: 1rem; }
-        .nav-logos img { height: 30px; filter: brightness(0) invert(1); }
+        .nav-logos img { height: 30px; }
         .nav-logos .divider { width: 1px; height: 22px; background: var(--dark-border); }
         .nav-links { display: flex; gap: 1.25rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.82rem; font-weight: 500; transition: color 0.3s; position: relative; }
@@ -292,7 +292,7 @@
 <div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--culligan-deeper);z-index:9999;display:flex;align-items:center;justify-content:center;">
     <div style="position:absolute;inset:0;overflow:hidden;"><div style="position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(0,163,224,0.08);filter:blur(80px);top:20%;right:10%;animation:pulse 5s infinite;"></div><div style="position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(123,94,167,0.08);filter:blur(60px);bottom:10%;left:10%;animation:pulse 5s infinite 2s;"></div></div>
     <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:3rem;max-width:420px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.5);">
-        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/culligan-logo.svg" alt="Culligan" style="height:40px;margin-bottom:1.5rem;filter:brightness(0) invert(1);" onerror="this.outerHTML='<span style=font-size:1.6rem;font-weight:700;color:#00A3E0>CULLIGAN</span>'">
+        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan" style="height:40px;margin-bottom:1.5rem;filter:brightness(0) invert(1);" onerror="this.outerHTML='<span style=font-size:1.6rem;font-weight:700;color:#00A3E0>CULLIGAN</span>'">
         <h2 style="color:#fff;font-size:1.3rem;margin-bottom:0.5rem;">Confidential Proposal</h2>
         <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Please enter the access code to continue.</p>
         <input id="pw-input" type="password" placeholder="Enter password" style="width:100%;padding:0.9rem 1.2rem;border:1px solid var(--dark-border);border-radius:10px;font-size:1rem;outline:none;transition:all 0.3s;background:var(--dark-surface);color:#fff;" onfocus="this.style.borderColor='#00A3E0'" onblur="this.style.borderColor=''">
@@ -304,7 +304,7 @@
 <!-- Navigation -->
 <nav>
     <div class="nav-logos">
-        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/culligan-logo.svg" alt="Culligan" onerror="this.outerHTML='<span style=font-size:1.2rem;font-weight:700;color:#00A3E0>CULLIGAN</span>'">
+        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan" onerror="this.outerHTML='<span style=font-size:1.2rem;font-weight:700;color:#00A3E0>CULLIGAN</span>'">
         <div class="divider"></div>
         <svg height="20" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg"><path fill="#f25022" d="M0 0h11v11H0z"/><path fill="#7fba00" d="M12 0h11v11H12z"/><path fill="#00a4ef" d="M0 12h11v11H0z"/><path fill="#ffb900" d="M12 12h11v11H12z"/></svg>
         <div class="divider"></div>
