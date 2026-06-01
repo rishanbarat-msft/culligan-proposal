@@ -311,16 +311,18 @@
 </head>
 <body>
 
-<!-- Password Gate -->
+<!-- Login Gate -->
 <div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--culligan-deeper);z-index:9999;display:flex;align-items:center;justify-content:center;">
     <div style="position:absolute;inset:0;overflow:hidden;"><div style="position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(0,163,224,0.08);filter:blur(80px);top:20%;right:10%;animation:pulse 5s infinite;"></div><div style="position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(123,94,167,0.08);filter:blur(60px);bottom:10%;left:10%;animation:pulse 5s infinite 2s;"></div></div>
     <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:3rem;max-width:420px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.5);">
         <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan" style="height:40px;margin-bottom:1.5rem;filter:brightness(0) invert(1);" onerror="this.outerHTML='<span style=font-size:1.6rem;font-weight:700;color:#00A3E0>CULLIGAN</span>'">
         <h2 style="color:#fff;font-size:1.3rem;margin-bottom:0.5rem;">Confidential Proposal</h2>
-        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Please enter the access code to continue.</p>
-        <input id="pw-input" type="password" placeholder="Enter password" style="width:100%;padding:0.9rem 1.2rem;border:1px solid var(--dark-border);border-radius:10px;font-size:1rem;outline:none;transition:all 0.3s;background:var(--dark-surface);color:#fff;" onfocus="this.style.borderColor='#00A3E0'" onblur="this.style.borderColor=''">
-        <p id="pw-error" style="color:#ff6b6b;font-size:0.85rem;margin-top:0.5rem;display:none;">Incorrect password. Please try again.</p>
-        <button onclick="checkPassword()" style="width:100%;margin-top:1rem;padding:0.9rem;background:linear-gradient(135deg,#00A3E0,#00D4FF);color:#001B3A;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">Access Proposal</button>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Sign in with your corporate email to continue.</p>
+        <input id="email-input" type="email" placeholder="Work email address" style="width:100%;padding:0.9rem 1.2rem;border:1px solid var(--dark-border);border-radius:10px;font-size:1rem;outline:none;transition:all 0.3s;background:var(--dark-surface);color:#fff;margin-bottom:0.75rem;" onfocus="this.style.borderColor='#00A3E0'" onblur="this.style.borderColor=''">
+        <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:0.9rem 1.2rem;border:1px solid var(--dark-border);border-radius:10px;font-size:1rem;outline:none;transition:all 0.3s;background:var(--dark-surface);color:#fff;" onfocus="this.style.borderColor='#00A3E0'" onblur="this.style.borderColor=''">
+        <p id="pw-error" style="color:#ff6b6b;font-size:0.85rem;margin-top:0.5rem;display:none;"></p>
+        <button onclick="checkLogin()" style="width:100%;margin-top:1rem;padding:0.9rem;background:linear-gradient(135deg,#00A3E0,#00D4FF);color:#001B3A;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">Sign In</button>
+        <p style="color:var(--text-muted);font-size:0.72rem;margin-top:1rem;">Access restricted to @culligan.com and @microsoft.com</p>
     </div>
 </div>
 
@@ -545,18 +547,33 @@
 
 <script>
 // Password
-function checkPassword(){
-    if(document.getElementById('pw-input').value==='CulliganMSFT'){
-        document.getElementById('password-gate').style.opacity='0';
-        document.getElementById('password-gate').style.transition='opacity 0.5s';
-        setTimeout(function(){document.getElementById('password-gate').style.display='none';document.body.style.overflow='auto';},500);
-    } else {
-        document.getElementById('pw-error').style.display='block';
-        document.getElementById('pw-input').style.borderColor='#ff6b6b';
-        document.getElementById('pw-input').value='';
+function checkLogin(){
+    var email = document.getElementById('email-input').value.trim().toLowerCase();
+    var pw = document.getElementById('pw-input').value;
+    var errEl = document.getElementById('pw-error');
+    var emailInput = document.getElementById('email-input');
+    var pwInput = document.getElementById('pw-input');
+    // Validate email domain
+    if(!email || (!email.endsWith('@culligan.com') && !email.endsWith('@microsoft.com'))){
+        errEl.textContent='Please use a @culligan.com or @microsoft.com email address.';
+        errEl.style.display='block';
+        emailInput.style.borderColor='#ff6b6b';
+        return;
     }
+    // Validate password
+    if(pw!=='CulliganMSFT'){
+        errEl.textContent='Incorrect password. Please try again.';
+        errEl.style.display='block';
+        pwInput.style.borderColor='#ff6b6b';
+        pwInput.value='';
+        return;
+    }
+    // Success
+    document.getElementById('password-gate').style.opacity='0';
+    document.getElementById('password-gate').style.transition='opacity 0.5s';
+    setTimeout(function(){document.getElementById('password-gate').style.display='none';document.body.style.overflow='auto';},500);
 }
-document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('password-gate').style.display!=='none')checkPassword();});
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('password-gate').style.display!=='none')checkLogin();});
 document.body.style.overflow='hidden';
 
 // Scroll animations
