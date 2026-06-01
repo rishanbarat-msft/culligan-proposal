@@ -289,6 +289,7 @@
             position: relative; z-index: 1;
         }
         .agenda-text { flex: 1; color: var(--white); font-size: 1rem; font-weight: 600; position: relative; z-index: 1; letter-spacing: 0.02em; }
+        .agenda-desc { display: block; font-size: 0.75rem; font-weight: 400; color: var(--text-muted); margin-top: 0.2rem; letter-spacing: 0; }
         .agenda-arrow { color: var(--culligan-glow); font-size: 1.4rem; opacity: 0; transition: all 0.35s; transform: translateX(-8px); position: relative; z-index: 1; }
         .agenda-item:hover .agenda-arrow { opacity: 1; transform: translateX(0); }
         @media (max-width: 768px) { .agenda-grid { grid-template-columns: 1fr; } }
@@ -392,52 +393,52 @@
         <div class="agenda-grid">
             <a href="#slide-4" class="agenda-item animate-on-scroll delay-1" onclick="event.preventDefault();document.getElementById('slide-3').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">01</span>
-                <span class="agenda-text">A Message from Microsoft</span>
+                <span class="agenda-text">A Message from Microsoft<span class="agenda-desc">Our commitment to Culligan's transformation journey</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-5" class="agenda-item animate-on-scroll delay-1" onclick="event.preventDefault();document.getElementById('slide-4').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">02</span>
-                <span class="agenda-text">Our North Star — Why This Matters</span>
+                <span class="agenda-text">Our North Star — Why This Matters<span class="agenda-desc">Sustainability, customer experience & operational goals</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-6" class="agenda-item animate-on-scroll delay-2" onclick="event.preventDefault();document.getElementById('slide-5').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">03</span>
-                <span class="agenda-text">Why Microsoft — Enterprise AI at Scale</span>
+                <span class="agenda-text">Why Microsoft — Enterprise AI at Scale<span class="agenda-desc">Adoption, security, and embedded intelligence</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-7" class="agenda-item animate-on-scroll delay-2" onclick="event.preventDefault();document.getElementById('slide-6').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">04</span>
-                <span class="agenda-text">The Lightning Bolt Offer</span>
+                <span class="agenda-text">The Lightning Bolt Offer<span class="agenda-desc">Exclusive limited-time Copilot licensing package</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-8" class="agenda-item animate-on-scroll delay-3" onclick="event.preventDefault();document.getElementById('slide-7').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">05</span>
-                <span class="agenda-text">Pricing Detail</span>
+                <span class="agenda-text">Pricing Detail<span class="agenda-desc">Transparent cost breakdown and seat allocation</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-9" class="agenda-item animate-on-scroll delay-3" onclick="event.preventDefault();document.getElementById('slide-8').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">06</span>
-                <span class="agenda-text">Why Act Now</span>
+                <span class="agenda-text">Why Act Now<span class="agenda-desc">Time-sensitive incentives and deadline details</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-10" class="agenda-item animate-on-scroll delay-3" onclick="event.preventDefault();document.getElementById('slide-9').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">07</span>
-                <span class="agenda-text">Deployment Plan</span>
+                <span class="agenda-text">Deployment Plan<span class="agenda-desc">90-day phased rollout with FastTrack support</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-12" class="agenda-item animate-on-scroll delay-4" onclick="event.preventDefault();document.getElementById('slide-11').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">08</span>
-                <span class="agenda-text">Measurable Impact & ROI</span>
+                <span class="agenda-text">Measurable Impact & ROI<span class="agenda-desc">Key metrics and expected business outcomes</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-14" class="agenda-item animate-on-scroll delay-4" onclick="event.preventDefault();document.getElementById('slide-13').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">09</span>
-                <span class="agenda-text">Experience Copilot — AI Agent</span>
+                <span class="agenda-text">Experience Copilot — AI Agent<span class="agenda-desc">Try the custom Culligan training agent live</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
             <a href="#slide-14" class="agenda-item animate-on-scroll delay-4" onclick="event.preventDefault();document.getElementById('slide-14').scrollIntoView({behavior:'smooth'})">
                 <span class="agenda-num">10</span>
-                <span class="agenda-text">Roadmap & Next Steps</span>
+                <span class="agenda-text">Roadmap & Next Steps<span class="agenda-desc">Timeline, contacts, and how to get started</span></span>
                 <span class="agenda-arrow">→</span>
             </a>
         </div>
