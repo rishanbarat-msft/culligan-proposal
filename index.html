@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal for Culligan | Microsoft</title>
-    <link rel="icon" href="https://wp.culligan.com/wp-content/uploads/2024/02/favicon-400x400-1.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Culligan x Microsoft AI Vision | Lightning Bolt Offer</title>
+    <link rel="icon" href="https://www.culligan.com/favicon.ico">
     <style>
         :root {
-            --deep-indigo: #022656;
-            --azure-blue: #0078D4;
-            --azure-blue-hover: #106EBE;
-            --marine-mint: #E6F7F2;
-            --grey-light: #F5F5F5;
-            --white: #FFFFFF;
-            --grey-secondary: #6B7280;
+            --culligan-blue: #0057A0;
+            --culligan-dark: #003B6F;
+            --culligan-light: #E8F4FD;
+            --culligan-accent: #00A3E0;
+            --microsoft-purple: #5B2D8E;
+            --text-dark: #1a1a1a;
+            --text-muted: #555;
+            --white: #ffffff;
+            --gray-bg: #f7f9fc;
+            --border: #e0e6ed;
         }
 
         * {
@@ -26,368 +26,1189 @@
         }
 
         body {
-            font-family: 'Manrope', sans-serif;
-            background: var(--grey-light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--deep-indigo);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Login Screen */
-        .login-container {
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(2, 38, 86, 0.08);
-            padding: 48px;
-            max-width: 440px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .login-container .logo {
-            margin-bottom: 32px;
-        }
-
-        .login-container .logo img {
-            height: 36px;
-        }
-
-        .login-container h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--deep-indigo);
-        }
-
-        .login-container p {
-            font-size: 14px;
-            color: var(--grey-secondary);
-            margin-bottom: 28px;
-            line-height: 1.5;
-        }
-
-        .login-container input {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1.5px solid #E0E0E0;
-            border-radius: 50px;
-            font-size: 15px;
-            font-family: 'Manrope', sans-serif;
-            outline: none;
-            transition: border-color 0.2s;
-            margin-bottom: 16px;
-        }
-
-        .login-container input:focus {
-            border-color: var(--azure-blue);
-        }
-
-        .login-container button {
-            width: 100%;
-            padding: 14px 24px;
-            border: none;
-            border-radius: 50px;
-            background: var(--azure-blue);
-            color: var(--white);
-            font-size: 15px;
-            font-weight: 600;
-            font-family: 'Manrope', sans-serif;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .login-container button:hover {
-            background: var(--azure-blue-hover);
-        }
-
-        .error-msg {
-            color: #DC2626;
-            font-size: 13px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        /* Proposal Screen */
-        .proposal-container {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            min-height: 100vh;
-        }
-
-        .proposal-header {
-            background: var(--deep-indigo);
-            width: 100%;
-            padding: 20px 0;
-        }
-
-        .proposal-header .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0.75rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .proposal-header img {
-            height: 30px;
-            filter: brightness(0) invert(1);
+        .nav-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        .proposal-header .badge {
-            background: var(--marine-mint);
-            color: var(--deep-indigo);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 50px;
+        .nav-logos img {
+            height: 36px;
         }
 
-        .proposal-body {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 48px 24px;
+        .nav-logos .divider {
+            width: 1px;
+            height: 28px;
+            background: var(--border);
         }
 
-        .proposal-content {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(2, 38, 86, 0.06);
-            overflow: hidden;
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
         }
 
-        .proposal-hero {
-            background: linear-gradient(135deg, var(--deep-indigo) 0%, #0A3D7A 100%);
-            padding: 64px 48px;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--culligan-blue);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--culligan-dark) 0%, var(--culligan-blue) 50%, var(--culligan-accent) 100%);
             color: var(--white);
+            padding: 6rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .proposal-hero::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: -50%;
             right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0,120,212,0.15) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
+            background: rgba(255,255,255,0.03);
         }
 
-        .proposal-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(230,247,242,0.08) 0%, transparent 70%);
-            border-radius: 50%;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
         }
 
-        .proposal-hero h1 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .proposal-hero .subtitle {
-            font-size: 18px;
-            opacity: 0.85;
-            font-weight: 400;
-            position: relative;
-            z-index: 1;
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
         }
 
-        .proposal-hero .logos {
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-stat .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--culligan-light);
+            color: var(--culligan-blue);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--culligan-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .alt-bg {
+            background: var(--gray-bg);
+        }
+
+        /* Cards grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0,87,160,0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--culligan-light);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
-            margin-top: 32px;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--culligan-dark);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* North Star priorities */
+        .priorities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .priority {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .priority-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--culligan-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .priority h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--culligan-dark);
+        }
+
+        .priority p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Pricing */
+        .pricing-highlight {
+            background: linear-gradient(135deg, var(--culligan-dark), var(--culligan-blue));
+            color: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .pricing-highlight .big-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .pricing-highlight .big-label {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 0.25rem;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .pricing-table thead {
+            background: var(--culligan-blue);
+            color: var(--white);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .pricing-table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-table tbody tr:nth-child(even) {
+            background: var(--gray-bg);
+        }
+
+        .pricing-table tfoot {
+            background: var(--culligan-dark);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .metric .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--culligan-blue);
+        }
+
+        .metric .desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .metric .context {
+            font-size: 0.75rem;
+            color: var(--culligan-accent);
+            margin-top: 0.25rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 16.6%;
+            right: 16.6%;
+            height: 3px;
+            background: var(--culligan-accent);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--culligan-accent);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            margin: 1.5rem auto 1rem;
+            box-shadow: 0 0 0 3px var(--culligan-accent);
             position: relative;
             z-index: 1;
         }
 
-        .proposal-hero .logos img {
-            height: 28px;
-            filter: brightness(0) invert(1);
-        }
-
-        .proposal-hero .logos .divider {
-            width: 1px;
-            height: 32px;
-            background: rgba(255,255,255,0.3);
-        }
-
-        .proposal-hero .logos .ms-logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .proposal-text {
-            padding: 56px 48px;
-        }
-
-        .proposal-text p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #374151;
-            margin-bottom: 24px;
-        }
-
-        .proposal-text p:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .proposal-signature {
-            margin-top: 40px;
-            padding-top: 32px;
-            border-top: 1px solid #E5E7EB;
-            font-size: 16px;
+        .timeline-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--culligan-accent);
             font-weight: 600;
-            color: var(--deep-indigo);
         }
 
-        .values-section {
-            background: var(--marine-mint);
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            margin: 0.75rem 0 0.5rem;
+            color: var(--culligan-dark);
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item li::before {
+            content: '✓ ';
+            color: var(--culligan-accent);
+        }
+
+        /* Why Microsoft */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 32px;
-            margin: 32px 0;
         }
 
-        .values-section p {
-            color: var(--deep-indigo) !important;
-            margin-bottom: 0 !important;
+        .why-card .icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: var(--culligan-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
-        .proposal-footer {
+        .why-card h4 {
+            font-size: 1rem;
+            color: var(--culligan-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Urgency banner */
+        .urgency-banner {
+            background: linear-gradient(135deg, #FF6B35, #FF4444);
+            color: white;
             text-align: center;
-            padding: 24px;
-            color: var(--grey-secondary);
-            font-size: 13px;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
         }
 
-        @media (max-width: 600px) {
-            .proposal-hero {
-                padding: 40px 24px;
-            }
-            .proposal-hero h1 {
-                font-size: 26px;
-            }
-            .proposal-text {
-                padding: 32px 24px;
-            }
+        .urgency-banner h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .urgency-banner p {
+            opacity: 0.9;
+        }
+
+        /* Deployment */
+        .deployment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .deployment-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            border-top: 4px solid var(--culligan-accent);
+        }
+
+        .deployment-card h3 {
+            color: var(--culligan-dark);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .deployment-card .sub {
+            font-size: 0.8rem;
+            color: var(--culligan-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .deployment-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .deployment-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .deployment-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--culligan-accent);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--culligan-dark), var(--culligan-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--culligan-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 0.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: var(--white);
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        /* Agent CTA */
+        .agent-cta {
+            background: var(--culligan-light);
+            border: 2px solid var(--culligan-accent);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .agent-cta h3 {
+            font-size: 1.3rem;
+            color: var(--culligan-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-cta p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .agent-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--culligan-blue);
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .agent-btn:hover {
+            background: var(--culligan-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Sustainability */
+        .sustainability {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .sustainability-text h3 {
+            font-size: 1.5rem;
+            color: var(--culligan-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .sustainability-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .sustainability-items {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .sustainability-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .sustainability-item h4 {
+            font-size: 0.95rem;
+            color: var(--culligan-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .sustainability-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--culligan-dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-stats { gap: 1.5rem; }
+            .priorities { grid-template-columns: 1fr; }
+            .pricing-highlight { grid-template-columns: 1fr; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline { grid-template-columns: 1fr; }
+            .timeline::before { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .deployment-grid { grid-template-columns: 1fr; }
+            .sustainability { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div class="login-container" id="loginScreen">
-        <div class="logo">
-            <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan logo">
+
+<!-- Password Gate -->
+<div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#003B6F,#0057A0);z-index:9999;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:16px;padding:3rem;max-width:400px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/culligan-logo.svg" alt="Culligan" style="height:40px;margin-bottom:1.5rem;" onerror="this.outerHTML='<span style=font-size:1.6rem;font-weight:700;color:#0057A0>CULLIGAN</span>'">
+        <h2 style="color:#003B6F;font-size:1.3rem;margin-bottom:0.5rem;">Confidential Proposal</h2>
+        <p style="color:#555;font-size:0.9rem;margin-bottom:1.5rem;">Please enter the access code to continue.</p>
+        <input id="pw-input" type="password" placeholder="Enter password" style="width:100%;padding:0.8rem 1rem;border:2px solid #e0e6ed;border-radius:8px;font-size:1rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#0057A0'" onblur="this.style.borderColor='#e0e6ed'">
+        <p id="pw-error" style="color:#e44;font-size:0.85rem;margin-top:0.5rem;display:none;">Incorrect password. Please try again.</p>
+        <button onclick="checkPassword()" style="width:100%;margin-top:1rem;padding:0.85rem;background:#0057A0;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#003B6F'" onmouseout="this.style.background='#0057A0'">Access Proposal</button>
+    </div>
+</div>
+<script>
+function checkPassword(){
+    var input=document.getElementById('pw-input').value;
+    if(input==='CulliganMSFT'){
+        document.getElementById('password-gate').style.display='none';
+        document.body.style.overflow='auto';
+    } else {
+        document.getElementById('pw-error').style.display='block';
+        document.getElementById('pw-input').style.borderColor='#e44';
+        document.getElementById('pw-input').value='';
+    }
+}
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('password-gate').style.display!=='none')checkPassword();});
+document.body.style.overflow='hidden';
+</script>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-logos">
+        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/culligan-logo.svg" alt="Culligan" onerror="this.src='https://www.culligan.com/images/culligan-logo.svg'; this.onerror=function(){this.outerHTML='<span style=font-size:1.4rem;font-weight:700;color:#0057A0>CULLIGAN</span>'}">
+        <div class="divider"></div>
+        <svg height="24" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg"><path fill="#f25022" d="M0 0h11v11H0z"/><path fill="#7fba00" d="M12 0h11v11H12z"/><path fill="#00a4ef" d="M0 12h11v11H0z"/><path fill="#ffb900" d="M12 12h11v11H12z"/></svg>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#north-star">Vision</a></li>
+        <li><a href="#offer">The Offer</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-badge">CULLIGAN × MICROSOFT AI VISION &nbsp;|&nbsp; MAY 2026</div>
+    <h1>Lightning Bolt Offer</h1>
+    <p>Powering Culligan's clean-water mission with Microsoft Copilot</p>
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <div class="label">Better Experience</div>
+            <div class="value">Faster, smarter customer service</div>
         </div>
-        <h1>Welcome, Culligan</h1>
-        <p>Please enter the access code provided to you to view your proposal.</p>
-        <form onsubmit="checkPassword(event)">
-            <input type="password" id="passwordInput" placeholder="Enter access code" autocomplete="off" autofocus>
-            <button type="submit">Access Proposal</button>
-        </form>
-        <p class="error-msg" id="errorMsg">Invalid access code. Please try again.</p>
+        <div class="hero-stat">
+            <div class="label">Lower Cost to Serve</div>
+            <div class="value">Automation across operations</div>
+        </div>
+        <div class="hero-stat">
+            <div class="label">Organic Growth</div>
+            <div class="value">AI-powered commercial excellence</div>
+        </div>
     </div>
+</section>
 
-    <!-- Proposal Screen -->
-    <div class="proposal-container" id="proposalScreen">
-        <header class="proposal-header">
-            <div class="header-inner">
-                <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan logo">
-                <span class="badge">Confidential Proposal</span>
+<!-- North Star -->
+<section id="north-star">
+    <div class="container">
+        <span class="section-badge">Our North Star</span>
+        <h2 class="section-title">Why this matters to Culligan</h2>
+        <p class="section-subtitle">Reduce single-use plastic waste and expand access to clean, sustainable water — globally.</p>
+
+        <div class="priorities">
+            <div class="priority">
+                <div class="priority-number">01</div>
+                <h3>Customer Experience</h3>
+                <p>Reduce friction across call wait times, scheduling, billing, and service reliability for commercial leases and residential service.</p>
             </div>
-        </header>
-
-        <main class="proposal-body">
-            <div class="proposal-content">
-                <div class="proposal-hero">
-                    <h1>Microsoft Copilot Lightning Bolt Offer</h1>
-                    <p class="subtitle">A Proposal Prepared Exclusively for Culligan</p>
-                    <div class="logos">
-                        <img src="https://wp.culligan.com/wp-content/uploads/2024/01/logo.svg?quality=80" alt="Culligan">
-                        <div class="divider"></div>
-                        <span class="ms-logo">Microsoft</span>
-                    </div>
-                </div>
-
-                <div class="proposal-text">
-                    <p>On behalf of Microsoft, we thank you for the privilege to provide and respond to Culligan's vital business transformation initiative. We are grateful for the unique opportunity you have given us to become students of your business and to allow us to humbly bring our point of view on how meaningful innovation will contribute to your success in big and small ways.</p>
-
-                    <div class="values-section">
-                        <p>Microsoft and Culligan share unique values. We respect and recognize that the thoughts, feelings, and backgrounds of others are as important as our own. We value our people and believe in partnership, and collaboration. We are honest, ethical and trustworthy through unquestionable integrity and transparency. We value accountability and quality, we accept full responsibility over our decisions, actions, and results. Lastly, we are innovators and pioneers, sharing an unrelentless quest for improvement. And because we share these values, our partnership is poised for mutual and long-lasting success.</p>
-                    </div>
-
-                    <p>In 2025, we mutually committed to invest in the uncharted territories of this partnership in a unique and rare way. Our engagement resulted in a collaboration model with Microsoft, and Culligan to co-create a vision for the future of your organization. Over the past few months, we've had the pleasure of meeting with your stakeholders, learn about your business priorities, and today, we are presenting you with an estimated software proposal.</p>
-
-                    <p>Our full suite of purpose-driven applications will empower you to collaborate across business units, have the insight to make critical decisions, perform exceptional customer service, leverage world class AI technology, take advantage of new trends, disrupt, adapt and reimagine what's possible — on a flexible platform that will allow for what the future brings.</p>
-
-                    <p>We are committed to your success and excited about the journey ahead.</p>
-
-                    <div class="proposal-signature">
-                        — Your Microsoft Team
-                    </div>
-                </div>
+            <div class="priority">
+                <div class="priority-number">02</div>
+                <h3>Operational Efficiency</h3>
+                <p>Lower cost to serve via automation, analytics, and platform efficiency — without trading off service quality.</p>
             </div>
-        </main>
-
-        <footer class="proposal-footer">
-            &copy; 2026 Microsoft Corporation. This proposal is confidential and intended solely for Culligan.
-        </footer>
+            <div class="priority">
+                <div class="priority-number">03</div>
+                <h3>Organic Growth</h3>
+                <p>Commercial excellence powered by AI-driven sales enablement across captive dealers and franchise partners.</p>
+            </div>
+        </div>
     </div>
+</section>
 
-    <script>
-        // Simple client-side password protection
-        // The password is hashed to avoid plain text in source (SHA-256)
-        const EXPECTED_HASH = '41d7aa0ecc60885ce39d19f5062d8588bfaa616ea1e4535b7d62f4b37e7f0280';
+<!-- Why Microsoft -->
+<section id="why-microsoft" class="alt-bg">
+    <div class="container">
+        <span class="section-badge">Why Microsoft</span>
+        <h2 class="section-title">The partner built for enterprise AI at scale</h2>
+        <p class="section-subtitle">We don't just sell seats — we build the muscle to use them.</p>
 
-        async function sha256(message) {
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon">🎓</div>
+                <div>
+                    <h4>Adoption & Enablement</h4>
+                    <p>Microsoft Learn + Copilot Academy + role-based training paths for every Culligan persona. FastTrack engineers and a dedicated CSM included.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="icon">⚡</div>
+                <div>
+                    <h4>Embedded, Not Bolted On</h4>
+                    <p>Copilot lives inside Outlook, Teams, Word, Excel, and PowerPoint — the apps Culligan already runs. No tab-switching required.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="icon">🔒</div>
+                <div>
+                    <h4>Enterprise-Grade Trust</h4>
+                    <p>Tenant-grounded via Microsoft Graph. Permissions-aware. Never used to train foundation models. Purview + sensitivity labels enforced end-to-end.</p>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="icon">🛡️</div>
+                <div>
+                    <h4>IP Protection</h4>
+                    <p>Microsoft stands behind Copilot output — we indemnify customers against third-party IP claims on generated content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        async function checkPassword(e) {
-            e.preventDefault();
-            const input = document.getElementById('passwordInput').value;
-            const hash = await sha256(input);
-            if (hash === EXPECTED_HASH) {
-                sessionStorage.setItem('culligan_auth', 'true');
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('proposalScreen').style.display = 'flex';
-                document.body.style.justifyContent = 'flex-start';
-                document.body.style.background = 'var(--grey-light)';
-            } else {
-                document.getElementById('errorMsg').style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
+<!-- The Offer -->
+<section id="offer">
+    <div class="container">
+        <span class="section-badge">The Offer</span>
+        <h2 class="section-title">Lightning Bolt Offer — at a glance</h2>
+        <p class="section-subtitle">A purpose-built Microsoft pricing construct for Culligan's full information-worker footprint.</p>
 
-        // Check if already authenticated in this session
-        if (sessionStorage.getItem('culligan_auth') === 'true') {
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('proposalScreen').style.display = 'flex';
-            document.body.style.justifyContent = 'flex-start';
-        }
-    </script>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>11,127 M365 Copilot Seats</h3>
+                <p>100% of Culligan information workers covered with full Microsoft 365 Copilot.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h3>~7,000 Copilot Chat</h3>
+                <p>Full coverage for the remaining workforce included at no additional cost.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>M1255 Amendment</h3>
+                <p>True-down restrictions on seat reduction — predictable run-rate for planning.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <h3>+12 Month Extension</h3>
+                <p>Contract extension aligned to prior ME5 approval for simplified procurement.</p>
+            </div>
+        </div>
+
+        <div class="urgency-banner">
+            <h3>⚡ Blended ~59% off list &nbsp;•&nbsp; 40 months of value</h3>
+            <p>Sign before June 30th — every month of delay surrenders ~$240K in Year-1 savings.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="alt-bg">
+    <div class="container">
+        <span class="section-badge">Pricing Detail</span>
+        <h2 class="section-title">The exact offer, every term</h2>
+        <p class="section-subtitle">11,127 M365 Copilot seats &nbsp;|&nbsp; $30.00 list price per seat/month &nbsp;|&nbsp; 40-month commitment</p>
+
+        <div class="pricing-highlight">
+            <div>
+                <div class="big-number">$13.4M</div>
+                <div class="big-label">Total List Exposure</div>
+            </div>
+            <div>
+                <div class="big-number">$5.4M</div>
+                <div class="big-label">Your Lightning Bolt Investment</div>
+            </div>
+            <div>
+                <div class="big-number">$7.9M</div>
+                <div class="big-label">Total Savings (~59%)</div>
+            </div>
+        </div>
+
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Months</th>
+                    <th>Discount</th>
+                    <th>Per Seat/Mo</th>
+                    <th>Discounted Price</th>
+                    <th>List Price</th>
+                    <th>Savings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4-Month Runway</td>
+                    <td>4</td>
+                    <td><strong>73% off</strong></td>
+                    <td>$8.10</td>
+                    <td>$360,515</td>
+                    <td>$1,335,240</td>
+                    <td>$974,725</td>
+                </tr>
+                <tr>
+                    <td>Year 1</td>
+                    <td>12</td>
+                    <td><strong>73% off</strong></td>
+                    <td>$8.10</td>
+                    <td>$1,081,544</td>
+                    <td>$4,005,720</td>
+                    <td>$2,924,176</td>
+                </tr>
+                <tr>
+                    <td>Year 2</td>
+                    <td>12</td>
+                    <td><strong>60% off</strong></td>
+                    <td>$12.00</td>
+                    <td>$1,602,288</td>
+                    <td>$4,005,720</td>
+                    <td>$2,403,432</td>
+                </tr>
+                <tr>
+                    <td>Year 3</td>
+                    <td>12</td>
+                    <td><strong>40% off</strong></td>
+                    <td>$18.00</td>
+                    <td>$2,403,432</td>
+                    <td>$4,005,720</td>
+                    <td>$1,602,288</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>TOTAL</td>
+                    <td>40 mo</td>
+                    <td>~59% avg</td>
+                    <td>—</td>
+                    <td>$5,447,779</td>
+                    <td>$13,352,400</td>
+                    <td>$7,904,621</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+<!-- Why Act Now -->
+<section id="urgency">
+    <div class="container">
+        <span class="section-badge">Why Act Now</span>
+        <h2 class="section-title">The window for this construct is finite</h2>
+        <p class="section-subtitle">Deadline: June 30th, 2026</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">⏰</div>
+                <h3>Discount Sunsets</h3>
+                <p>Year 1 at 73% off is a one-time entry rate. Delaying compresses the value and re-prices Year 2 / Year 3.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Free 4-Month Runway</h3>
+                <p>The prorated 4-month head start at 73% off lets pilots start banking value before the Year-1 clock begins.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏁</div>
+                <h3>Competitors Are Moving</h3>
+                <p>Veolia, Pentair, and Evoqua are scaling AI in service ops. Every month Culligan delays is a month they widen the gap.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h3>ME5 Alignment</h3>
+                <p>The 12-month extension and M1255 amendment lock in one renewal cycle — simpler procurement, fewer cycles.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deployment -->
+<section id="deployment" class="alt-bg">
+    <div class="container">
+        <span class="section-badge">Deployment Plan</span>
+        <h2 class="section-title">Copilot, mapped to every business unit</h2>
+        <p class="section-subtitle">Purpose-built deployment across Manufacturing, Sales & Service, and Call Center Operations.</p>
+
+        <div class="deployment-grid">
+            <div class="deployment-card">
+                <h3>Manufacturing</h3>
+                <div class="sub">Plants & OEM</div>
+                <ul>
+                    <li>Copilot in Engineering, QA, and supply planning</li>
+                    <li>Accelerate spec sheets, RFQs, and partner comms</li>
+                    <li>Automate compliance docs and regulatory submissions</li>
+                </ul>
+            </div>
+            <div class="deployment-card">
+                <h3>Sales, Service & Delivery</h3>
+                <div class="sub">Dealers & Field Ops</div>
+                <ul>
+                    <li>Faster customer follow-up and proposals via Copilot</li>
+                    <li>Summarize work orders, pull service history instantly</li>
+                    <li>Proposal drafting and renewal prep accelerated 3–5×</li>
+                </ul>
+            </div>
+            <div class="deployment-card">
+                <h3>Call Center Operations</h3>
+                <div class="sub">Quench & Residential</div>
+                <ul>
+                    <li>Copilot Chat for ~7,000 frontline staff</li>
+                    <li>AI-assisted agent handoff, reduced wait times</li>
+                    <li>Real-time summarization for billing and dispatch</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tied to North Star -->
+<section>
+    <div class="container">
+        <span class="section-badge">Tied to the North Star</span>
+        <h2 class="section-title">Every dollar of Copilot maps to a CIO priority</h2>
+        <p class="section-subtitle"></p>
+
+        <div class="cards-grid">
+            <div class="card" style="border-top: 3px solid var(--culligan-accent);">
+                <h3>Priority 01 — Customer Experience</h3>
+                <p><strong>Cut friction on every customer interaction</strong></p>
+                <ul style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted); padding-left:1rem;">
+                    <li>Copilot in service center reduces average call handle time</li>
+                    <li>AI-drafted billing explanations cut billing-related callbacks</li>
+                    <li>Field tech summaries shorten residential service visit time</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top: 3px solid var(--culligan-accent);">
+                <h3>Priority 02 — Operational Efficiency</h3>
+                <p><strong>Lower cost to serve, without lowering quality</strong></p>
+                <ul style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted); padding-left:1rem;">
+                    <li>Copilot recovers ~30 min/employee/day</li>
+                    <li>Automated meeting recaps cut coordination overhead</li>
+                    <li>Self-service answers from SharePoint reduce ticket volume</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top: 3px solid var(--culligan-accent);">
+                <h3>Priority 03 — Organic Growth</h3>
+                <p><strong>Commercial excellence at the front line</strong></p>
+                <ul style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-muted); padding-left:1rem;">
+                    <li>AI-prepared account briefs before every meeting</li>
+                    <li>Faster proposal drafting for leasing and station sales</li>
+                    <li>Pipeline hygiene and forecast summaries from CRM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Measurable Impact -->
+<section id="impact" class="alt-bg">
+    <div class="container">
+        <span class="section-badge">Measurable Impact</span>
+        <h2 class="section-title">How Culligan can measure Copilot impact</h2>
+        <p class="section-subtitle"></p>
+
+        <div class="metrics-grid">
+            <div class="metric">
+                <div class="number">-25%</div>
+                <div class="desc">Average call handle time</div>
+                <div class="context">Quench & residential support</div>
+            </div>
+            <div class="metric">
+                <div class="number">-40%</div>
+                <div class="desc">Time to draft proposals</div>
+                <div class="context">Commercial & dealer sales teams</div>
+            </div>
+            <div class="metric">
+                <div class="number">+30 min</div>
+                <div class="desc">Recovered per worker / day</div>
+                <div class="context">Forrester TEI benchmark</div>
+            </div>
+            <div class="metric">
+                <div class="number">-15%</div>
+                <div class="desc">Billing-related callbacks</div>
+                <div class="context">Improved first-contact resolution</div>
+            </div>
+        </div>
+
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:2rem;">
+            <h3 style="color:var(--culligan-dark); margin-bottom:1rem;">Quarterly Copilot Business Review</h3>
+            <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem;">
+                <div>
+                    <h4 style="color:var(--culligan-accent); font-size:0.9rem;">Adoption</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">Active seats, weekly engagement, drop-off by BU and persona</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--culligan-accent); font-size:0.9rem;">Productivity</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">Time saved, ticket deflection, automation hours by workflow</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--culligan-accent); font-size:0.9rem;">Business Impact</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">Cost-to-serve change, NPS lift, proposal cycle time, callback rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sustainability -->
+<section>
+    <div class="container">
+        <span class="section-badge">Mission Multiplier</span>
+        <h2 class="section-title">Copilot amplifies the sustainability mission</h2>
+        <p class="section-subtitle">Every hour Copilot saves is an hour Culligan can reinvest in the planet.</p>
+
+        <div class="sustainability">
+            <div class="sustainability-text">
+                <h3>Water Stewardship & ESG</h3>
+                <p>Copilot accelerates the reporting, content, and partnership velocity behind Culligan's ESG agenda — turning back-office hours into customer-facing sustainability action.</p>
+            </div>
+            <div class="sustainability-items">
+                <div class="sustainability-item">
+                    <h4>🌊 Single-Use Plastic Reduction</h4>
+                    <p>Auto-generated campaign copy and customer education scales the move from bottles to bottle-fillers.</p>
+                </div>
+                <div class="sustainability-item">
+                    <h4>🤝 Strategic Partnerships (AmeriWater)</h4>
+                    <p>Copilot accelerates joint go-to-market — proposal drafting, sterile-processing playbooks, and partner enablement at speed.</p>
+                </div>
+                <div class="sustainability-item">
+                    <h4>📊 ESG Reporting & Disclosure</h4>
+                    <p>Copilot drafts sustainability reports, tracks ESG KPIs, and pre-fills disclosure templates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap" class="alt-bg">
+    <div class="container">
+        <span class="section-badge">Roadmap & Next Steps</span>
+        <h2 class="section-title">From signature to scale — 90 days</h2>
+        <p class="section-subtitle"></p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-label">Day 0 – 30</div>
+                <div class="timeline-dot"></div>
+                <h3>Sign & Ignite</h3>
+                <ul>
+                    <li>Execute Lightning Bolt offer + M1255</li>
+                    <li>Stand up adoption Center of Excellence</li>
+                    <li>Activate 4-month runway seats</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Day 31 – 60</div>
+                <div class="timeline-dot"></div>
+                <h3>Deploy & Enable</h3>
+                <ul>
+                    <li>Wave 1: Sales, Service, and Quench</li>
+                    <li>Persona-based training + champions</li>
+                    <li>Wire data: SharePoint, CRM, ServiceMax</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Day 61 – 90</div>
+                <div class="timeline-dot"></div>
+                <h3>Scale & Measure</h3>
+                <ul>
+                    <li>Wave 2: Manufacturing, Engineering, ESG</li>
+                    <li>Launch first Copilot Business Review</li>
+                    <li>Publish baseline KPIs to exec committee</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Agent CTA -->
+        <div class="agent-cta">
+            <h3>💡 Experience Copilot in Action</h3>
+            <p>Try the dedicated Culligan × Microsoft AI Agent — see how Copilot can answer questions about this proposal, your deployment, and next steps.</p>
+            <a href="https://teams.microsoft.com/l/app/?source=agent-details-page&sharedAppResource=TaosSharedApp&titleId=T_9d473426-5842-e10d-2532-51a1d5152b13" class="agent-btn" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Open AI Agent in Teams
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to activate Lightning Bolt?</h2>
+    <p>Approve by June 3rd — activate the 4-month runway and start banking Year-1 value immediately.</p>
+    <a href="mailto:Rishan.Barat@microsoft.com?subject=Lightning%20Bolt%20Offer%20-%20Culligan" class="cta-btn">Contact Your Microsoft Team</a>
+    <a href="https://teams.microsoft.com/l/app/?source=agent-details-page&sharedAppResource=TaosSharedApp&titleId=T_9d473426-5842-e10d-2532-51a1d5152b13" class="cta-btn secondary" target="_blank">Try the AI Agent →</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p><strong>Culligan International × Microsoft</strong> &nbsp;|&nbsp; Project Lightning Bolt &nbsp;|&nbsp; Confidential — Executive Review</p>
+    <p style="margin-top:0.5rem;">Prepared for the Culligan Executive Committee &nbsp;|&nbsp; May 2026</p>
+</footer>
+
 </body>
 </html>
